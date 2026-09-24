@@ -1,0 +1,36 @@
+# Villa Prestige Saint-Barth — Collection Exclusive de Villas d
+
+> Collection confidentielle des plus prestigieuses propriétés de villégiature à Saint-Barthélemy : domaines suspendus sur la falaise, piscines miroir face à la mer, conciergerie 24/7 et services sur mesure.
+
+## Présentation générale
+Villa Prestige Saint-Barth — Collection Exclusive de Villas d (https://villa-prestige-stbarth.com) est un média d'information et guide spécialisé indépendant dédié à sa thématique d'expertise. Notre mission est d'apporter une information fiable, vérifiée et actualisée aux passionnés, professionnels et résidents, en valorisant les meilleures pratiques, les acteurs locaux et l'art de vivre sous les alizés.
+
+## Structure du site & Thématiques phares
+Le contenu est structuré autour des axes éditoriaux majeurs suivants :
+
+- **Domaines d** : Analyses, guides détaillés, conseils pratiques et retours d'expérience sur le terrain.
+- **Saint-Jean & Plages Secrètes** : Analyses, guides détaillés, conseils pratiques et retours d'expérience sur le terrain.
+- **Conciergerie Privée & Chefs** : Analyses, guides détaillés, conseils pratiques et retours d'expérience sur le terrain.
+- **Art de Recevoir & Événements** : Analyses, guides détaillés, conseils pratiques et retours d'expérience sur le terrain.
+
+## Ressources & Publications
+- [Tous les articles du Magazine](https://villa-prestige-stbarth.com/blog/) : Plus de 6 publications thématiques, guides d'experts et fiches pratiques rédigées par notre rédaction.
+- [Accueil international (English)](https://villa-prestige-stbarth.com/en/) : Version anglophone des dossiers et guides de référence.
+- [Accueil international (Español)](https://villa-prestige-stbarth.com/es/) : Version hispanophone des dossiers et guides de référence.
+
+## Éthique éditoriale & Charte de qualité
+Villa Prestige Saint-Barth — Collection Exclusive de Villas d s'engage au quotidien sur une charte stricte :
+- Production d'analyses indépendantes, objectives et fondées sur des données terrain.
+- Sensibilisation active au respect de l'environnement local et à la préservation des écosystèmes.
+- Valorisation des artisans, commerces, initiatives durables et talents régionaux.
+
+## Données techniques & Respect de la vie privée
+- Plateforme statique haute performance (Astro 5 SSG, hébergement Edge Cloudflare Pages).
+- Mesure d'audience 100% cookieless via Matomo auto-hébergé, strictement conforme au RGPD et exemptée de consentement préalable selon les recommandations de la CNIL.
+- Régie publicitaire Revive Adserver intégrée de façon asynchrone garantissant une vitesse d'affichage optimale sans traçage intrusif.
+
+## Informations légales & Contact
+- Éditeur : Villa Prestige Saint-Barth Private Office
+- Contact rédaction : concierge@villa-prestige-stbarth.com
+- Mentions Légales : https://villa-prestige-stbarth.com/mentions-legales/
+- Politique de Confidentialité : https://villa-prestige-stbarth.com/politique-confidentialite/
