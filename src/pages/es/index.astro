@@ -1,0 +1,43 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog-es');
+---
+
+<Layout title="Villa Prestige Saint-Barth — Colección Exclusiva de Villas de Lujo en San Bartolomé" lang="es">
+  <section class="border-b border-stone-800 bg-[#060606] py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="inline-flex items-center gap-2 rounded-full border border-[#d4af37]/30 bg-[#16140e] px-3.5 py-1 text-xs text-[#e5c76b] font-semibold mb-4">
+        COLECCIÓN EN ESPAÑOL
+      </div>
+      <h1 class="font-serif-luxury text-3xl font-bold text-white sm:text-5xl">Villas de Ultra-Lujo en Saint-Barth</h1>
+      <p class="mt-4 max-w-2xl text-stone-300 text-sm sm:text-base leading-relaxed font-light">
+        Fincas privadas sobre los acantilados, piscinas infinitas con vistas panorámicas y servicio de conserjería personalizada 24/7.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12 bg-[#060606]">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {posts.map(post => (
+          <article class="flex flex-col justify-between rounded-sm border border-stone-800 bg-[#0c0c0c] p-6 hover:border-[#d4af37]/50 transition-colors">
+            <div>
+              <span class="rounded bg-[#1a1710] px-2 py-0.5 text-[10px] text-[#e5c76b] font-semibold uppercase">{post.data.category}</span>
+              <h2 class="font-serif-luxury text-lg font-bold text-white mt-3 hover:text-[#d4af37] transition-colors">
+                <a href={'/es/' + post.id + '/'}>{post.data.title}</a>
+              </h2>
+              <p class="mt-2 text-xs text-stone-400 leading-relaxed font-light">
+                {post.data.description}
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-stone-800 text-xs">
+              <a href={'/es/' + post.id + '/'} class="text-[#d4af37] hover:underline font-semibold uppercase text-[11px] tracking-wider">Leer Artículo →</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

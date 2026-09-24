@@ -1,0 +1,138 @@
+---
+import { siteConfig } from '../config/site.config';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  lang?: string;
+}
+
+const {
+  title = siteConfig.title,
+  description = siteConfig.description,
+  image = '/images/og-image.jpg',
+  lang = 'fr',
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || siteConfig.url);
+const alternateFr = new URL(Astro.url.pathname.replace(/^\/(en|es)/, ''), siteConfig.url);
+const alternateEn = new URL('/en' + Astro.url.pathname.replace(/^\/(en|es)/, ''), siteConfig.url);
+const alternateEs = new URL('/es' + Astro.url.pathname.replace(/^\/(en|es)/, ''), siteConfig.url);
+---
+
+<!DOCTYPE html>
+<html lang={lang} class="scroll-smooth bg-[#060606] text-stone-100 antialiased selection:bg-[#d4af37] selection:text-black">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <link rel="alternate" hreflang="fr" href={alternateFr} />
+    <link rel="alternate" hreflang="en" href={alternateEn} />
+    <link rel="alternate" hreflang="es" href={alternateEs} />
+    <link rel="alternate" hreflang="x-default" href={alternateFr} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={image} />
+
+    <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style is:global>
+      body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+      h1, h2, h3, .font-serif-luxury {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+      }
+    </style>
+  </head>
+  <body class="flex min-h-screen flex-col bg-[#060606] text-stone-200">
+    <!-- Header Semplice -->
+    <header class="sticky top-0 z-50 border-b border-stone-800/80 bg-[#060606]/95 backdrop-blur-md">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6">
+        <a href="/" class="flex items-center gap-3">
+          <div class="flex h-10 w-10 items-center justify-center rounded-sm border border-[#d4af37]/40 bg-[#121212] font-serif-luxury text-base font-bold text-[#d4af37] shadow-sm">
+            VPS
+          </div>
+          <div>
+            <span class="block font-serif-luxury text-lg font-bold tracking-tight text-white uppercase">VILLA PRESTIGE</span>
+            <span class="block text-[9px] font-semibold tracking-widest text-[#d4af37] uppercase">Saint-Barthélemy Collection</span>
+          </div>
+        </a>
+
+        <!-- Navigation Links -->
+        <nav class="hidden md:flex items-center gap-8 text-xs font-semibold tracking-widest text-stone-400 uppercase">
+          <a href="/blog/" class="hover:text-[#d4af37] transition-colors">DOMAINES D'EXCEPTION</a>
+          <a href="/blog/" class="hover:text-[#d4af37] transition-colors">SAINT-JEAN</a>
+          <a href="/blog/" class="hover:text-[#d4af37] transition-colors">CONCIERGERIE</a>
+          <a href="/mentions-legales/" class="hover:text-[#d4af37] transition-colors">PRIVATE OFFICE</a>
+        </nav>
+
+        <!-- Languages & Badges -->
+        <div class="flex items-center gap-3">
+          <div class="hidden sm:flex items-center gap-2 rounded-full border border-[#d4af37]/30 bg-[#1a1710] px-3.5 py-1 text-[11px] text-[#e5c76b] font-medium">
+            <span class="h-1.5 w-1.5 rounded-full bg-[#d4af37]"></span>
+            ULTRA-LUXURY RETREATS
+          </div>
+          <div class="flex items-center gap-1.5 text-xs text-stone-500 border-l border-stone-800 pl-3 font-semibold">
+            <a href="/" class="px-1.5 py-0.5 rounded text-black bg-[#d4af37] font-bold">FR</a>
+            <a href="/en/" class="px-1.5 py-0.5 rounded hover:text-white">EN</a>
+            <a href="/es/" class="px-1.5 py-0.5 rounded hover:text-white">ES</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-grow">
+      <slot />
+    </main>
+
+    <!-- Footer Semplice -->
+    <footer class="border-t border-stone-800 bg-[#030303] py-14 text-stone-500 text-xs">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+          <div class="md:col-span-2">
+            <div class="flex items-center gap-2 mb-3">
+              <div class="h-7 w-7 rounded-sm border border-[#d4af37]/40 bg-[#121212] font-serif-luxury font-bold text-[#d4af37] flex items-center justify-center text-xs">VPS</div>
+              <span class="font-serif-luxury text-base font-bold text-white tracking-wide">VILLA PRESTIGE SAINT-BARTH PRIVATE OFFICE</span>
+            </div>
+            <p class="text-xs text-stone-400 leading-relaxed max-w-md font-light">
+              Collection confidentielle des plus remarquables propriétés de villégiature et domaines privés à Saint-Barthélemy. Conciergerie de haute volée et accompagnement sur mesure.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-serif-luxury text-stone-300 font-bold mb-3 tracking-wider text-xs uppercase">Collection</h4>
+            <ul class="space-y-2 text-stone-400">
+              <li><a href="/" class="hover:text-[#d4af37] transition-colors">Accueil</a></li>
+              <li><a href="/blog/" class="hover:text-[#d4af37] transition-colors">Catalogue des Domaines</a></li>
+              <li><a href="/en/" class="hover:text-[#d4af37] transition-colors">English Edition</a></li>
+              <li><a href="/es/" class="hover:text-[#d4af37] transition-colors">Edición en Español</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-serif-luxury text-stone-300 font-bold mb-3 tracking-wider text-xs uppercase">Privilèges</h4>
+            <ul class="space-y-2 text-stone-400">
+              <li><a href="/mentions-legales/" class="hover:text-[#d4af37] transition-colors">Mentions Légales</a></li>
+              <li><a href="/politique-confidentialite/" class="hover:text-[#d4af37] transition-colors">Politique de Confidentialité</a></li>
+              <li><span class="text-stone-600">100% Cookieless RGPD</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-stone-800/80 pt-6 flex flex-col sm:flex-row justify-between items-center text-[11px] text-stone-600">
+          <p>© {new Date().getFullYear()} Villa Prestige Saint-Barth — Tous droits réservés.</p>
+          <p class="mt-2 sm:mt-0 font-medium text-[#d4af37]">LEXINGTON SEMPLICE ARCHITECTURE</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
