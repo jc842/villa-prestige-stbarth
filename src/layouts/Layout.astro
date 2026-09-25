@@ -1,4 +1,6 @@
 ---
+import ReviveSlot from '../components/ads/ReviveSlot.astro';
+import MobileStickyAd from '../components/ads/MobileStickyAd.astro';
 import Matomo from '../components/analytics/Matomo.astro';
 import { siteConfig } from '../config/site.config';
 
@@ -96,9 +98,17 @@ const alternateEs = new URL('/es' + Astro.url.pathname.replace(/^\/(en|es)/, '')
       </div>
     </header>
 
+    <!-- Leaderboard Ad Slot -->
+    <div class="hidden md:flex justify-center my-4">
+      <ReviveSlot slot="header" />
+    </div>
+
     <main class="flex-grow">
       <slot />
     </main>
+
+    <!-- Mobile Sticky Banner -->
+    <MobileStickyAd />
 
     <!-- Footer Semplice -->
     <footer class="border-t border-stone-800 bg-[#030303] py-14 text-stone-500 text-xs">

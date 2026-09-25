@@ -1,4 +1,5 @@
 ---
+import ReviveSlot from '../components/ads/ReviveSlot.astro';
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
@@ -120,4 +121,8 @@ const remainingPosts = sortedPosts.slice(6, 40);
       </div>
     </div>
   </section>
+  <!-- Emplacement Publicitaire Revive In-Content -->
+  <div class="my-14 flex justify-center">
+    <ReviveSlot slot="inContent" />
+  </div>
 </Layout>

@@ -1,4 +1,5 @@
 ---
+import ReviveSlot from '../../components/ads/ReviveSlot.astro';
 import Layout from '../../layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
 
@@ -30,6 +31,16 @@ const { Content } = await render(post);
       </header>
       <div class="prose prose-invert prose-stone max-w-none prose-headings:font-serif-luxury prose-headings:font-bold prose-headings:text-white prose-a:text-[#d4af37] leading-relaxed text-stone-300 font-light text-base">
         <Content />
+
+      <!-- Encart Pub In-Content Revive (Medium Rectangle) -->
+      <div class="my-12 py-6 border-y border-stone-200/80 dark:border-stone-800 flex justify-center">
+        <ReviveSlot slot="inContent" />
+      </div>
+
+      <!-- Encart Pub Fin d'Article Large Rectangle -->
+      <div class="my-8 p-4 bg-stone-50/60 dark:bg-stone-900/60 rounded-2xl border border-stone-200/60 dark:border-stone-800 flex flex-col items-center justify-center text-center">
+        <ReviveSlot slot="largeRectangle" />
+      </div>
       </div>
       <footer class="mt-14 border-t border-stone-800 pt-8 text-xs text-stone-400">
         <a href="/es/" class="text-[#d4af37] hover:underline font-semibold uppercase tracking-wider text-[11px]">← Volver a los artículos en español</a>
